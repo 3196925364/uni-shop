@@ -17,7 +17,7 @@
       <!-- 搜索历史 -->
       <view class="history-box" v-else>
         <!-- 标题区域 -->
-        <view class="history-title">
+        <view class="history-title" v-if="historys.length!==0">
           <text>搜索历史</text>
           <uni-icons type="trash" size="20" @click="clean"></uni-icons>
         </view>
@@ -52,7 +52,7 @@
         },500)
       },
      async getSearchList(){
-        if(this.kw.length===0){
+        if(this.kw.trim().length===0){
           this.searchResults=[]
           return
         }
